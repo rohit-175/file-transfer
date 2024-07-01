@@ -26,7 +26,7 @@ export const LoginSignup = () => {
     useEffect(() => {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             console.log(formValues);
-            setIsSubmit(false); // Reset isSubmit after submission
+            setIsSubmit(false);
         }
     }, [formErrors, isSubmit, formValues]);
 
