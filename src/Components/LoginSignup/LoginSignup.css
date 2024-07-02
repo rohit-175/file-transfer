@@ -6,7 +6,7 @@
     background-color: aliceblue;
     margin-top: 100px;
     margin-left: 30rem;
-    width: 400px;
+    width: 500px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -37,14 +37,14 @@
     display: flex;
     align-items: center;
     margin: auto;
-    width: 300px;
+    width: 400px;
     height: 50px;
     background-color: #dedddd;
     border-radius: 7px;
 }
 .input input{
     height: 2.5rem;
-    width: 20rem;
+    width: 18rem;
     border-radius: 7px;
     background: transparent;
     border: none;
@@ -76,9 +76,29 @@
     outline: none;
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
     cursor: pointer;
 }
+#final{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 30px;
+    background-color: #2068bf;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    margin-left: 9rem;
+}
+
+#final:hover{
+    background-color:#4c8ddd ;
+}
+
 .gray{
     background-color: #dedddd;
     color: #000000;

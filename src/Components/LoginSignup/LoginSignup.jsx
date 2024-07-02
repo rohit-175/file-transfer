@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './LoginSignup.css';
 import userlogo from '../Assets/userlogo.png';
 import passwordlogo from '../Assets/passwordlogo.png';
@@ -9,7 +9,6 @@ export const LoginSignup = () => {
     const initialValue = { username: '', email: '', password: '' };
     const [formValues, setFormValues] = useState(initialValue);
     const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,20 +19,12 @@ export const LoginSignup = () => {
         e.preventDefault();
         const errors = validate(formValues);
         setFormErrors(errors);
-        setIsSubmit(true);
     };
-
-    useEffect(() => {
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
-            setIsSubmit(false);
-        }
-    }, [formErrors, isSubmit, formValues]);
 
     const validate = (values) => {
         const errors = {};
-        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-        if (!values.username) {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (!values.username && action === 'Sign Up') {
             errors.username = 'Username is required!';
         }
         if (!values.email) {
@@ -43,6 +34,9 @@ export const LoginSignup = () => {
         }
         if (!values.password) {
             errors.password = 'Password is required!';
+        }
+        else if(values.password.length < 6){
+            errors.password = 'Password must be atlest 6 characters!'
         }
         return errors;
     };
@@ -54,9 +48,7 @@ export const LoginSignup = () => {
                     <div className='text'>{action}</div>
                 </div>
                 <div className='inputs'>
-                    {action === 'Login' ? (
-                        <div></div>
-                    ) : (
+                    {action === 'Login' ? null : (
                         <div className='input'>
                             <img src={userlogo} alt='user.png' />
                             <input
@@ -66,9 +58,9 @@ export const LoginSignup = () => {
                                 value={formValues.username}
                                 onChange={handleChange}
                             />
+                            {formErrors.username && <p>{formErrors.username}</p>}
                         </div>
                     )}
-                    <p>{formErrors.username}</p>
 
                     <div className='input'>
                         <img src={emaillogo} alt='email.png' />
@@ -79,8 +71,8 @@ export const LoginSignup = () => {
                             value={formValues.email}
                             onChange={handleChange}
                         />
+                        {formErrors.email && <p>{formErrors.email}</p>}
                     </div>
-                    <p>{formErrors.email}</p>
                     <div className='input'>
                         <img src={passwordlogo} alt='password.png' />
                         <input
@@ -90,18 +82,19 @@ export const LoginSignup = () => {
                             value={formValues.password}
                             onChange={handleChange}
                         />
+                        {formErrors.password && <p>{formErrors.password}</p>}
                     </div>
-                    <p>{formErrors.password}</p>
                 </div>
 
                 <div className='submit-container'>
-                    <div className={action === 'Login' ? 'submit gray' : 'submit'} onClick={() => setAction('Sign Up')}>
-                        <button type='button'>Sign Up</button>
-                    </div>
                     <div className={action === 'Sign Up' ? 'submit gray' : 'submit'} onClick={() => setAction('Login')}>
                         <button type='button'>Login</button>
                     </div>
+                    <div className={action === 'Login' ? 'submit gray' : 'submit'} onClick={() => setAction('Sign Up')}>
+                        <button type='button'>Sign Up</button>
+                    </div>
                 </div>
+                <button type='submit' id='final'>Submit</button>
             </form>
         </div>
     );
