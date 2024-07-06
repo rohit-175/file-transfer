@@ -32,7 +32,7 @@ function Dashboard() {
                 // Emit socket event for file upload
                 socket.emit('file-upload', { fileName: selectedFile.name, fileSize: selectedFile.size });
             })
-            .catch(error => console.error('Error uploading:', error));
+            .catch(error => console.error('Error uploading file:', error));
     };
 
     // Socket.io listener for file details
