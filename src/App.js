@@ -5,7 +5,7 @@ import Dashboard from './Components/dashboard/Dashboard';
 function App() {
   return (
     <div>
-      {/* <LoginSignup/> */}
+
       <Dashboard />
     </div>
   );

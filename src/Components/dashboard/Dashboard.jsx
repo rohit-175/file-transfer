@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import socketIOClient from 'socket.io-client';
-
+import { LoginSignup } from '../LoginSignup/LoginSignup';
+import { useNavigate } from 'react-router-dom';
 const ENDPOINT = 'http://localhost:5000'; // Replace with your server endpoint
 
 function Dashboard() {
@@ -9,11 +10,13 @@ function Dashboard() {
     const [fileUrl, setFileUrl] = useState(null);
 
     const socket = socketIOClient(ENDPOINT);
-
+    const navigate = useNavigate();
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
     };
-
+    const handleClickLogin = () => {
+        navigate("/login-signup");
+    }
     const handleFileUpload = () => {
         if (!selectedFile) return;
 
@@ -47,6 +50,9 @@ function Dashboard() {
 
     return (
         <div className="App">
+            <div className='header'>
+                <button onClick={handleClickLogin}>Login/Signup</button>
+            </div>
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleFileUpload}>Upload File</button>
 
