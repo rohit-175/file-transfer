@@ -1,0 +1,90 @@
+.transfer {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+
+#heading {
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    margin-left: 250px;
+    background: #023047;
+    width: 60%; 
+    color: #8ECAE6;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type="file"] {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.url, .head {
+    margin-top: 20px;
+}
+
+.url p, .head p {
+    color: #007bff;
+}
+
+.url a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.url a:hover {
+    text-decoration: underline;
+}
+
+.head button {
+    background-color: #28a745;
+}
+
+.head button:hover {
+    background-color: #218838;
+}
+
+p {
+    margin: 5px 0;
+    color: #555;
+}
+
+div {
+    margin: 10px 0;
+}
